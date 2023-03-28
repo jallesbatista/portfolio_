@@ -19,6 +19,7 @@ interface ReposType {
   description: string;
   html_url: string;
   homepage: string;
+  deployUrl: string | undefined;
 }
 
 export const Project = (): JSX.Element => {
@@ -30,28 +31,56 @@ export const Project = (): JSX.Element => {
         `https://api.github.com/users/${userData.githubUser}/repos?sort=created&direction=desc`
       );
 
+      const projects = [
+        {
+          name: "reactproject-kenziehub",
+          url: "https://reactproject-kenzie-hub.vercel.app/",
+        },
+        { name: "poke-app", url: "https://pokesearch-vue.netlify.app" },
+        { name: "port-geek", url: "https://port-geek.vercel.app" },
+        { name: "reactproject-nukenzie", url: "https://reactproject-nu-kenzie.vercel.app" },
+      ];
       const json = await data.json();
 
-      setRepositories(json);
+      const mappedLanguages = json.map(async (repo: any) => {
+        const languageData = await fetch(repo.languages_url);
+
+        const dataJson = await languageData.json();
+
+        projects.forEach((el) => {
+          if (repo.name == el.name) {
+            repo.deployUrl = el.url;
+          }
+        });
+
+        return {
+          ...repo,
+          language: Object.keys(dataJson)[0],
+        };
+      });
+      Promise.all(mappedLanguages).then((values) => {
+        setRepositories(values);
+      });
 
       return json;
     };
-
+    console.log(repositories);
     fetchData();
   }, []);
-
   return (
     <>
       {repositories &&
         repositories?.map?.((repository) => (
           <ProjectWrapper key={repository.id}>
             <ProjectTitle
-              as="h2"
+              href={repository.deployUrl}
+              target="_blank"
+              as={repository.deployUrl ? "a" : "h2"}
               type="heading3"
               css={{ marginBottom: "$3" }}
               color="grey4"
             >
-              {repository.name}
+              {repository.deployUrl ? repository.name + " (Deployed)" : repository.name}
             </ProjectTitle>
 
             <ProjectStack>
@@ -81,10 +110,7 @@ export const Project = (): JSX.Element => {
                 <FaGithub /> Github Code
               </ProjectLink>
               {repository.homepage && (
-                <ProjectLink
-                  target="_blank"
-                  href={`https://${repository.homepage}`}
-                >
+                <ProjectLink target="_blank" href={`https://${repository.homepage}`}>
                   <FaShare /> See demo
                 </ProjectLink>
               )}
