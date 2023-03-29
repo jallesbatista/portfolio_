@@ -64,7 +64,7 @@ export const Project = (): JSX.Element => {
 
       return json;
     };
-    console.log(repositories);
+
     fetchData();
   }, []);
   return (
