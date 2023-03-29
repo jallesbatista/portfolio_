@@ -56,7 +56,7 @@ export const Contacts = () => {
                   color="grey2"
                   type="body2"
                   target="_blank"
-                  href={`https://api.whatsapp.com/send?phone=+55+${userData.whatsappNumber}&text=Ol%C3%A1%2C%20venho%20por%20meio%20do%20seu%20portf%C3%B3lio%20na%20internet%2C%20gostaria%20de%20conhecer%20melhor%20seus%20servi%C3%A7os`}
+                  href={`https://wa.me/55${userData.whatsappNumber}?text=Ol%C3%A1%21%21+Venho+por+meio+do+seu+portfolio.+Gostaria+de+conhecer+melhor+os+seus+servi%C3%A7os%2C+poderia+me+falar+um+pouco+sobre%3F`}
                 >
                   Talk Now
                 </Text>
@@ -81,7 +81,6 @@ export const Contacts = () => {
                   type="body2"
                   target="_blank"
                   href={`mailto:${userData.emailUser}`}
-                  // onClick={() => (window.location.href = `mailto:${userData.emailUser}`)}
                 >
                   Send me an email
                 </Text>
