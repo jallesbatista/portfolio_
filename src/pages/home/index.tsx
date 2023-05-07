@@ -44,7 +44,9 @@ export const Home = (): JSX.Element => {
                 width={"48px"}
                 height={"48px"}
               />
-              <Text color="grey4">Hello, my name is {userData.nameUser}</Text>
+              <Text color="grey4">
+                Hello, my name is {userData.nameUser}. I'm a Front End web developer.
+              </Text>
             </Flex>
             <Text as="h1" type="heading1" color="grey5">
               I{" "}
@@ -58,8 +60,11 @@ export const Home = (): JSX.Element => {
               projects
             </Text>
             <Text type="body1" color="grey2">
-              Discover here in this environment, created especially for you, all my projects and
-              technologies
+              I am a front end web developer, passionate about learning new things and improving my
+              knowledge. The use of agile technologies such as Scrum and DevOps was essential to
+              develop, as a team, a good range of the projects I own. Discover here in this
+              environment, created especially for you, more details about my projects and
+              technologies.
             </Text>
             <HeaderButtonsArea>
               <Button as="a" type="primary" href="#projects">
@@ -91,7 +96,7 @@ export const Home = (): JSX.Element => {
         <Container>
           <ProjectAreaWrapperColumns>
             <ProjectsAreaSocialMediaMessage>
-              <Text as="h2" type="heading4" color="grey4">
+              <Text as="h2" type="heading2" color="grey4">
                 My projects
               </Text>
               <Text as="p" type="body1" color="grey2">
