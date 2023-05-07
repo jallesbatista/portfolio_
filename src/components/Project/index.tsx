@@ -10,6 +10,7 @@ import {
 import { Text } from "@/styles/Text";
 import { useEffect, useState } from "react";
 import { FaGithub, FaShare } from "react-icons/fa";
+import { IoMdRocket } from "react-icons/io";
 import { userData } from "@/utils/userData";
 
 interface ReposType {
@@ -39,6 +40,7 @@ export const Project = (): JSX.Element => {
         { name: "poke-app", url: "https://pokesearch-vue.netlify.app" },
         { name: "port-geek", url: "https://port-geek.vercel.app" },
         { name: "reactproject-nukenzie", url: "https://reactproject-nu-kenzie.vercel.app" },
+        { name: "portfolio_", url: "https://portfolio-jallesbatista.netlify.app" },
       ];
       const json = await data.json();
 
@@ -72,15 +74,8 @@ export const Project = (): JSX.Element => {
       {repositories &&
         repositories?.map?.((repository) => (
           <ProjectWrapper key={repository.id}>
-            <ProjectTitle
-              href={repository.deployUrl}
-              target="_blank"
-              as={repository.deployUrl ? "a" : "h2"}
-              type="heading3"
-              css={{ marginBottom: "$3" }}
-              color="grey4"
-            >
-              {repository.deployUrl ? repository.name + " (Deployed)" : repository.name}
+            <ProjectTitle as={"h2"} type="heading3" css={{ marginBottom: "$3" }} color="grey4">
+              {repository.name}
             </ProjectTitle>
 
             <ProjectStack>
@@ -112,6 +107,11 @@ export const Project = (): JSX.Element => {
               {repository.homepage && (
                 <ProjectLink target="_blank" href={`https://${repository.homepage}`}>
                   <FaShare /> See demo
+                </ProjectLink>
+              )}
+              {repository.deployUrl && (
+                <ProjectLink target="_blank" href={repository.deployUrl}>
+                  <IoMdRocket /> Deploy Link
                 </ProjectLink>
               )}
             </ProjectLinks>
