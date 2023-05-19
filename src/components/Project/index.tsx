@@ -41,7 +41,7 @@ export const Project = (): JSX.Element => {
         { name: "port-geek", url: "https://port-geek.vercel.app" },
         { name: "reactproject-nukenzie", url: "https://reactproject-nu-kenzie.vercel.app" },
         { name: "portfolio_", url: "https://portfolio-jallesbatista.netlify.app" },
-        { name: "MotorShop-Front", url: "https://motorshoponline.netlify.app/" },
+        { name: "MotorsShop-Front", url: "https://motorshoponline.netlify.app/" },
       ];
       const json = await data.json();
 
