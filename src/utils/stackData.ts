@@ -1,8 +1,8 @@
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiPostgresql, SiTypescript } from "react-icons/si";
+import { SiPostgresql, SiTypescript, SiJavascript } from "react-icons/si";
 import { FaGit, FaPython } from "react-icons/fa";
 import { SiDjango, SiChakraui } from "react-icons/si";
-import { FaHtml5, FaCss3Alt, FaJs, FaNode, FaReact } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaNode, FaReact } from "react-icons/fa";
 
 export const stackData = [
   {
@@ -15,7 +15,7 @@ export const stackData = [
   },
   {
     title: "JS",
-    img: FaJs,
+    img: SiJavascript,
   },
   { title: "TypeScript", img: SiTypescript },
   {
