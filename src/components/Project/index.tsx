@@ -34,14 +34,15 @@ export const Project = (): JSX.Element => {
 
       const projects = [
         {
-          name: "reactproject-kenziehub",
-          url: "https://reactproject-kenzie-hub.vercel.app/",
+          name: "KenzieHub",
+          url: "https://khubproject.vercel.app",
         },
         { name: "poke-app", url: "https://pokesearch-vue.netlify.app" },
         { name: "port-geek", url: "https://port-geek.vercel.app" },
-        { name: "reactproject-nukenzie", url: "https://reactproject-nu-kenzie.vercel.app" },
+        { name: "nukenzie", url: "https://nu-kenzieproject.vercel.app" },
         { name: "portfolio_", url: "https://portfolio-jallesbatista.netlify.app" },
         { name: "MotorsShop-Front", url: "https://motorshoponline.netlify.app/" },
+        { name: "hamburgueria", url: "https://kburguer.vercel.app" },
       ];
       const json = await data.json();
 
@@ -105,11 +106,7 @@ export const Project = (): JSX.Element => {
               <ProjectLink target="_blank" href={repository.html_url}>
                 <FaGithub /> Github Code
               </ProjectLink>
-              {repository.homepage && (
-                <ProjectLink target="_blank" href={`https://${repository.homepage}`}>
-                  <FaShare /> See demo
-                </ProjectLink>
-              )}
+
               {repository.deployUrl && (
                 <ProjectLink target="_blank" href={repository.deployUrl}>
                   <IoMdRocket /> Deploy Link
